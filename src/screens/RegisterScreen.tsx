@@ -4,15 +4,15 @@ import Button from "../components/ui/Button";
 import FileInput from "../components/ui/FileInput";
 import useRegister from "../hooks/useRegister";
 import type { registerForm } from "../types/registerFormTypes";
- import {useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 const initialFormData: registerForm = {
   fullName: "",
   username: "",
   email: "",
   password: "",
-  avatar: null,
-  coverImage: null,
-};
+  avatar: "",
+  coverImage: "",
+};  
 
 
 
@@ -112,9 +112,12 @@ const navigate = useNavigate()
 
         <p className="mt-6 text-center text-gray-500">
           Already have an account?{" "}
-          <span className="cursor-pointer font-semibold text-black hover:underline">
+          <Link
+            to="/login"
+            className="font-semibold text-black hover:underline"
+          >
             Login
-          </span>
+          </Link>
         </p>
       </div>
     </div>

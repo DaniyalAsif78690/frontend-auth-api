@@ -3,7 +3,7 @@ import Button from "../components/ui/Button";
 import type {loginform} from "../types/registerFormTypes"
 import {useState} from "react"
 import {useLogin} from "../hooks/useLogin.jsx";
-import {useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   
@@ -75,9 +75,12 @@ onSubmit={(e)=>{
 
         <p className="mt-6 text-center text-gray-500">
           Don't have an account?{" "}
-          <span className="cursor-pointer font-semibold text-black hover:underline">
+          <Link
+            to="/register"
+            className="font-semibold text-black hover:underline"
+          >
             Register
-          </span>
+          </Link>
         </p>
 
       </div>

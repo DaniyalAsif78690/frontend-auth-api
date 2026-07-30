@@ -23,7 +23,7 @@ const Home = () => {
           ease.
         </p>
 
-        <div className="mt-10 flex gap-4">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Link
             to="/login"
             className="rounded-xl border border-gray-300 px-6 py-3 font-medium transition hover:bg-gray-100"
@@ -36,6 +36,13 @@ const Home = () => {
             className="rounded-xl bg-black px-6 py-3 font-medium text-white transition hover:bg-gray-800"
           >
             Create Account
+          </Link>
+
+          <Link
+            to="/user"
+            className="rounded-xl border border-gray-300 px-6 py-3 font-medium transition hover:bg-gray-100"
+          >
+            User
           </Link>
         </div>
 

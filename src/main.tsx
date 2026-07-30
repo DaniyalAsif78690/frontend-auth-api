@@ -10,6 +10,8 @@ import {QueryClientProvider, QueryClient}  from "@tanstack/react-query"
 import Home from "./screens/Home.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
+import UserScreen from "./screens/UserScreen.jsx";
+import { CookiesProvider } from "react-cookie";
 
 const router = createBrowserRouter([
   {
@@ -24,12 +26,18 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterScreen />,
   },
+  {
+    path: "/user",
+    element: <UserScreen />,
+  },
 ]);
 const queryClient = new  QueryClient()
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <CookiesProvider>
     <QueryClientProvider client={queryClient}> 
     <RouterProvider router={router} />
     </QueryClientProvider>
+    </CookiesProvider>
   </React.StrictMode>
 );

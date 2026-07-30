@@ -12,11 +12,9 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.101.4",
-<<<<<<< HEAD
     "axios": "^1.18.1",
-=======
->>>>>>> b68e33deb9fe387fd33e297dcc87de0f65abc835
     "react": "^19.2.7",
+    "react-cookie": "^8.1.2",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.11.0",
     "tailwindcss": "^4.3.3",
