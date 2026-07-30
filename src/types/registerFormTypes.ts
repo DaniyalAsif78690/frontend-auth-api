@@ -3,8 +3,13 @@ export interface registerForm  {
     username:string,
     password:string,
     email:string,
+<<<<<<< HEAD
     avatar: File  |  string,
     coverImage?:File  | string,
+=======
+    avatar: File |  null,
+    coverImage?:File | null,
+>>>>>>> b68e33deb9fe387fd33e297dcc87de0f65abc835
     
 }
 
