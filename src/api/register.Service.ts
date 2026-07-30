@@ -5,7 +5,7 @@ const registerUserService = async function (User: registerForm) {
   const formData = new FormData();
 
   Object.keys(User).forEach((key) => {
-    formData.append(key, User[key as keyof registerForm] || "");
+    formData.append(key, User[key as keyof registerForm] || "")
   });
   const registerConfig = {
     headers: {
