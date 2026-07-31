@@ -1,7 +1,9 @@
-import axios from "axios";
-import type { registerForm } from "../types/registerFormTypes";
-import type { registerConfig } from "./axiosInstance";
+ import type { registerForm } from "../types/registerFormTypes.js";
+import   {  postRegister } from "../lib/axios/apiRequests.js";
+  
+
 const registerUserService = async function (User: registerForm) {
+ 
   const formData = new FormData();
 
   Object.keys(User).forEach((key) => {
@@ -12,11 +14,10 @@ const registerUserService = async function (User: registerForm) {
       "content-Type": "multipart/form-data",
     },
   };
-
-  const res = await axios.post(
-    "/register",
-    formData,
-    registerConfig as registerConfig,
+   const res = await postRegister(
+      formData,
+     registerConfig
+     
   );
   return res;
 };

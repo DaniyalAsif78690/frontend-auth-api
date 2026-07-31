@@ -1,4 +1,4 @@
- import registerUserService from "../api/register.Service.ts";
+ import registerUserService from "../api/register.Service.js";
 import { useMutation } from "@tanstack/react-query";
 function useRegister() {
   const Mutation =  useMutation({ mutationFn: registerUserService });

@@ -15,7 +15,7 @@ const User = () => {
   const [method, setMethod] = useState<string>("");
   const Mutation = useRequest();
 
-  const [body, setBody] = useState<Object>(`{
+  const [body, setBody] = useState<string>(`{
      "fullName" :"",
      "password":"",
      "email":"",
@@ -23,8 +23,7 @@ const User = () => {
 
   const [response, setResponse] = useState("Waiting for request...");
   const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
-
+ 
   const clearResponse = () => {
     setResponse("Waiting for request...");
     setStatus("");
@@ -169,7 +168,6 @@ const User = () => {
                 onChange={(e) => {
                   setBody(e.target.value);
 
-                  setRequestBoadyZustand(e.target.value);
                 }}
                 className="mt-2 w-full rounded-xl border border-gray-300 p-4 font-mono text-sm outline-none focus:border-black"
               />
@@ -180,9 +178,11 @@ const User = () => {
           <div className="mt-6 flex gap-3">
             <button
               onClick={() => {
-                Mutation.mutate();
+                setRequestBoadyZustand(JSON.parse(body));
+
+                Mutation.mutate()
               }}
-              disabled={Mutation.isPending}
+              disabled={false}
               className="flex-1 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800 disabled:opacity-60"
             >
               {Mutation.isPending ? "Sending..." : "Send Request"}
