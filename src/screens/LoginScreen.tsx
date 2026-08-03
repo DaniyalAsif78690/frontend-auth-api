@@ -1,9 +1,9 @@
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
-import type {loginform} from "../types/registerFormTypes"
+import type {loginform} from "../types/authTypes"
 import {useState} from "react"
-import {useLogin} from "../hooks/useLogin.jsx";
-import { Link, useNavigate } from "react-router-dom";
+ import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   
@@ -12,7 +12,7 @@ const Login = () => {
     password:"",
   })
   const navigate = useNavigate( )
-const {loginMutation} = useLogin()
+const {loginMutation} = useAuth()
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-lg">

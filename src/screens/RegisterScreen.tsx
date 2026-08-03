@@ -2,9 +2,9 @@ import { useState } from "react";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 import FileInput from "../components/ui/FileInput";
-import useRegister from "../hooks/useRegister";
-import type { registerForm } from "../types/registerFormTypes";
+ import type { registerForm } from "../types/authTypes";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 const initialFormData: registerForm = {
   fullName: "",
   username: "",
@@ -14,11 +14,9 @@ const initialFormData: registerForm = {
   coverImage: "",
 };  
 
-
-
 const Register = () => {
   const [formData, setFormData] = useState<registerForm>(initialFormData);
-  const { Mutation } = useRegister();
+  const { registerMutation } = useAuth();
 const navigate = useNavigate()
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -56,7 +54,7 @@ const navigate = useNavigate()
           className="mt-8 space-y-5"
           onSubmit={(e) => {
             e.preventDefault();
-            Mutation.mutate(formData, {
+            registerMutation.mutate(formData, {
               onSuccess: () => {
                 setFormData(initialFormData);
                 navigate("/login");
