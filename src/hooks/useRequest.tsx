@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
- import useRequestData from "../store/requestData";
+import useRequestData from "../store/requestData";
 //  import { ejectAxiosInterceptor } from "../lib/axios/axiosInstance";
 import { testRequests } from "../api/testRoutes.Service.js";
 export function useRequest() {
@@ -7,16 +7,10 @@ export function useRequest() {
     mutationFn: () => {
       const { Method, endPoint, requestBoady } = useRequestData.getState();
 
-      const request = testRequests(Method, endPoint, requestBoady, {
-        "content-Type": "application/json",
-      });
+      const request = testRequests(Method, endPoint, requestBoady);
 
       return request;
     },
-
-     
-         
-      
   });
   return Mutation;
 }

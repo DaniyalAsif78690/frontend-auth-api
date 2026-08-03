@@ -10,23 +10,15 @@ const registerUserService = async function (User: registerForm) {
   Object.keys(User).forEach((key) => {
     formData.append(key, User[key as keyof registerForm] || "")
   });
-  const registerConfig = {
-    headers: {
-      "content-Type": "multipart/form-data",
-    },
-  };
-   const res = await apiClient.post("/register" , formData ,registerConfig)
+
+   const res = await apiClient.post("/register" , formData )
   return res;
 };
 
      
 const loginUserService = async function (User:loginform) {
-   const config = {
-    headers:{
-    'Content-Type': 'application/json'
-    }
-  }
-  const res = apiClient.post("/login", User, config );   return res ;
+   
+  const res = apiClient.post("/login", User );   return res ;
 };
 
 export   {loginUserService ,registerUserService};
